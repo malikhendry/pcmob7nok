@@ -8,26 +8,24 @@ const ContactDetails = () => {
 
   const { ContactInfo } = route.params;
 
-  // Dummy contact details (replace with actual data retrieval logic)
-  const [contactDetails, setContactDetails] = useState(ContactInfo); // Use ContactInfo directly
+  
+  const [contactDetails, setContactDetails] = useState(ContactInfo); 
 
   const [editing, setEditing] = useState(false);
 
   const handleEdit = () => {
-    // Logic to enable editing
+   
     setEditing(true);
   };
 
   const handleSave = () => {
-    // Logic to save updated details
+   
     setEditing(false);
-    // Call API or update state, etc.
+    
   };
 
   const handleDelete = () => {
-    // Logic to delete the contact
-    // Call API or perform necessary actions
-    // For example, navigation.goBack() to return to the previous screen after deletion
+   navigation.goBack() to return to the previous screen after deletion
     navigation.goBack();
   };
 
@@ -38,9 +36,7 @@ const ContactDetails = () => {
         onChangeText={(text) => setContactDetails({ ...contactDetails, name: text })}
         editable={editing}
       />
-      {/* Other TextInput fields for contact details */}
-      
-      {editing ? (
+     
         <TouchableOpacity onPress={handleSave}>
           <Text>Save</Text>
         </TouchableOpacity>
