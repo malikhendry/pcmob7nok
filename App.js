@@ -17,7 +17,7 @@ export default function App() {
 
   async function setToken() {
     const token = await AsyncStorage.getItem("token");
-    // if there is not token, it will be falsey value
+    
     setLoggedIn(token);
     setLoading(false);
   }

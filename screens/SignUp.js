@@ -7,8 +7,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const SignUp = () => {
-    // Perform sign-up logic here
-    // You can use the state variables (email, password, confirmPassword) to send data to your backend or perform validation
+    
   };
 
   return (

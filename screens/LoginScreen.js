@@ -5,6 +5,7 @@ import { CONTACT_INFO, API, API_LOGIN } from "../constants";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+
 export default function LoginScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -54,9 +55,10 @@ export default function LoginScreen() {
         {loading ? <ActivityIndicator style={styles.buttonText} /> : <Text style={styles.buttonText}>Login</Text>}
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={"SignUp"}>
-        <Text style={styles.signUpText}>Need an account? <Text style={styles.signUpLink}>SIGN UP</Text></Text>
-      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+  <Text style={styles.signUpText}>Need an account? <Text style={styles.signUpLink}>SIGN UP</Text></Text>
+</TouchableOpacity>
+
 
 
       <Text style={styles.errorText}>{errorText}</Text>

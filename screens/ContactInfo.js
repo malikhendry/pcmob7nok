@@ -9,7 +9,7 @@ const ContactInfo = () => {
   const contactsData = [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Smith' },
-    // Other contact names
+  
   ];
 
   const [contacts, setContacts] = useState(contactsData);
@@ -22,7 +22,7 @@ const ContactInfo = () => {
 
   const handleSearch = (text) => {
     setSearchText(text);
-    const filteredContacts = contactsData.filter((contact) =>
+    const filteredContacts = contactsData.filter((contact) => 
       contact.name.toLowerCase().includes(text.toLowerCase())
     );
     setContacts(filteredContacts);
