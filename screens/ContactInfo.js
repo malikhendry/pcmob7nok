@@ -9,7 +9,7 @@ const ContactInfo = () => {
   const contactsData = [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Smith' },
-    // Other contact names
+   
   ];
 
   const [contacts, setContacts] = useState(contactsData);
