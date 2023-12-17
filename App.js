@@ -3,10 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, StatusBar, StyleSheet, View } from "react-native";
-import { LOGIN_SCREEN, CONTACT_INFO, CONTACT_DETAILS } from "./constants";
+import { LOGIN_SCREEN, CONTACT_INFO, CONTACT_DETAILS, SIGN_UP, ADD_SCREEN } from "./constants";
 import LoginScreen  from "./screens/LoginScreen";
 import ContactInfo from "./screens/ContactInfo";
 import ContactDetails from "./screens/ContactDetails";
+import SignUp from "./screens/SignUp";
+import AddScreen from "./screens/AddScreen";
 
 
 const Stack = createStackNavigator();
@@ -42,9 +44,10 @@ export default function App() {
         }}
       >
         <Stack.Screen component={LoginScreen} name={LOGIN_SCREEN} />
-      
+        <Stack.Screen component={SignUp} name={SIGN_UP} />
         <Stack.Screen component={ContactInfo} name={CONTACT_INFO} />
         <Stack.Screen component={ContactDetails} name={CONTACT_DETAILS} />
+        <Stack.Screen component={AddScreen} name={ADD_SCREEN} />
       </Stack.Navigator>
     </NavigationContainer>
   );

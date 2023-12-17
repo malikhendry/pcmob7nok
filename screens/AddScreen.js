@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-const ContactDetails = () => {
+
+const AddScreen = () => {
+  const [contactName, setContactName] = useState('');
+  const [kinName, setKinName] = useState('');
+  const [kinRelationship, setKinRelationship] = useState('');
+  const [kinPhoneNumber, setKinPhoneNumber] = useState('');
+  const [kinHomeNumber, setKinHomeNumber] = useState('');
+  const [bloodGroup, setBloodGroup] = useState('');
   const navigation = useNavigation();
-  const route = useRoute();
-
-  
-  const { contact } = route.params || {};
-
-  
-  const [contactName, setContactName] = useState(contact?.contactName || '');
-  const [kinName, setKinName] = useState(contact?.kinName || '');
-  const [kinRelationship, setKinRelationship] = useState(contact?.kinRelationship || '');
-  const [kinPhoneNumber, setKinPhoneNumber] = useState(contact?.kinPhoneNumber || '');
-  const [kinHomeNumber, setKinHomeNumber] = useState(contact?.kinHomeNumber || '');
-  const [bloodGroup, setBloodGroup] = useState(contact?.bloodGroup || '');
 
   const handleSaveContact = () => {
-    
-    const updatedContact = {
+    const newContact = {
       contactName,
       kinName,
       kinRelationship,
@@ -27,20 +21,12 @@ const ContactDetails = () => {
       kinHomeNumber,
       bloodGroup,
     };
-
-    console.log('Updated Contact:', updatedContact);
-
-   
-
-    navigation.goBack(); 
+  
+    console.log('New Contact:', newContact);
+  
+    navigation.navigate('ContactInfo', { contact: newContact });
   };
-
-  const handleDelete = () => {
-    console.log('Deleted Contact:', contact);
-    
-    navigation.goBack(); 
-  };
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Contact Name:</Text>
@@ -49,7 +35,8 @@ const ContactDetails = () => {
         value={contactName}
         onChangeText={(text) => setContactName(text)}
       />
-       <Text style={styles.label}>Next of Kin Name:</Text>
+
+      <Text style={styles.label}>Next of Kin Name:</Text>
       <TextInput
         style={styles.input}
         value={kinName}
@@ -86,10 +73,6 @@ const ContactDetails = () => {
 
       <TouchableOpacity style={styles.button} onPress={handleSaveContact}>
         <Text style={styles.buttonText}>Save Contact</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={handleDelete}>
-        <Text style={styles.buttonText}>Delete</Text>
       </TouchableOpacity>
     </View>
   );
@@ -128,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactDetails;
+export default AddScreen;

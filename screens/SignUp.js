@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const SignUp = () => {
+  const navigation = useNavigation();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const SignUp = () => {
-    
+  const handleSignUp = () => {
+   
+    navigation.navigate('LoginScreen'); 
   };
 
   return (
@@ -37,12 +41,16 @@ const SignUp = () => {
         onChangeText={(text) => setConfirmPassword(text)}
       />
 
-      <TouchableOpacity style={styles.button} onPress={SignUp}>
+      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+
+
+export default SignUp;
 
 const styles = StyleSheet.create({
   container: {
@@ -78,4 +86,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
