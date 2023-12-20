@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 
 const AddScreen = () => {
@@ -11,6 +11,7 @@ const AddScreen = () => {
   const [kinHomeNumber, setKinHomeNumber] = useState('');
   const [bloodGroup, setBloodGroup] = useState('');
   const navigation = useNavigation();
+  const route = useRoute();
 
   const handleSaveContact = () => {
     const newContact = {
@@ -23,8 +24,11 @@ const AddScreen = () => {
     };
   
     console.log('New Contact:', newContact);
+
+    route.params.onSave(newContact);
+    navigation.goBack();
   
-    navigation.navigate('ContactInfo', { contact: newContact });
+   // navigation.navigate('ContactInfo', { contact: newContact });
   };
   
   return (

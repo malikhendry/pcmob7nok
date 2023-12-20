@@ -7,7 +7,7 @@ const ContactInfo = () => {
   const navigation = useNavigation();
 
   const contactsData = [
-    { id: '1', name: 'Alan Phua', phone: '91887455'  },
+    { id: '1', name: 'Alan Phua', phone: '91887455' },
     { id: '2', name: 'Cindy', phone: '98763244' },
   ];
 
@@ -24,9 +24,16 @@ const ContactInfo = () => {
     setContacts(filteredContacts);
   };
 
-  const handleAddButtonPress = () => {
-    navigation.navigate('AddScreen'); 
+  const onContactAdded = (data) => {
+    setContacts([...contacts, { name: data.contactName }]);
   };
+
+  const handleAddButtonPress = () => {
+    navigation.navigate('AddScreen', {
+      onSave: onContactAdded
+    });
+  }
+
 
   const renderContact = ({ item }) => (
     <TouchableOpacity
